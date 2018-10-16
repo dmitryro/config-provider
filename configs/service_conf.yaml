@@ -1,0 +1,46 @@
+# list of services used by the application
+
+service.mysql.read:
+    class: 'core.storage.Database'
+    kwarguments:
+      host: '%service.mysql.config.read.host%'
+      port: '%service.mysql.config.port%'
+      database: '%service.mysql.config.database%'
+      charset: '%service.mysql.config.charset%'
+      user: '%service.mysql.config.user%'
+      passwd: '%service.mysql.config.passwd%'
+      mode: 'read'
+service.mysql.write:
+    class: 'core.storage.Database'
+    kwarguments:
+      host: '%service.mysql.config.write.host%'
+      port: '%service.mysql.config.port%'
+      database: '%service.mysql.config.database%'
+      charset: '%service.mysql.config.charset%'
+      user: '%service.mysql.config.user%'
+      passwd: '%service.mysql.config.passwd%'
+      mode: 'write'
+service.storage.redis:
+    class: 'core.storage.Redis'
+    kwarguments:
+      port: '%service.redis.port%'
+      host: '%service.redis.host%'
+      protocol: '%service.redis.protocol%'
+      REDIS_DB_NOTIFY: '%service.redis.REDIS_DB_NOTIFY%'
+      REDIS_DB_OFFERINGS: '%service.redis.REDIS_DB_OFFERINGS%'
+      REDIS_DB_CONTENT: '%service.redis.REDIS_DB_CONTENT%'
+      REDIS_DB_PUBLISHING: '%service.redis.REDIS_DB_PUBLISHING%'
+      REDIS_DB_OFFERINGS_EXPIRE: '%service.redis.REDIS_DB_OFFERINGS_EXPIRE%'
+      REDIS_DB_CONTENT_EXPIRE: '%service.redis.REDIS_DB_CONTENT_EXPIRE%'
+      REDIS_DB_WHITELIST_EXPIRE: '%service.redis.REDIS_DB_WHITELIST_EXPIRE%'
+service.object_store:
+    class: 'core.services.ObjectStore'
+    arguments:
+        - '@service.mysql.read'
+        - '@service.mysql.write'
+        - '@service.storage.redis'
+#       -
+#           mysql_read: '@service.mysql.read'
+#           mysql_write: '@service.mysql.write'
+#           redis: '@service.storage.redis'
+

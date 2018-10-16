@@ -1,0 +1,9 @@
+signals:
+  - read_carts
+  - filled_orders
+  - accepted_orders
+  - rejected_orders
+  - process_shipment
+  - reject_order
+  - accept_order
+  - merchant_onboard

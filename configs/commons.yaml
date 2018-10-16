@@ -1,0 +1,23 @@
+signals:
+  - low_stock
+  - out_of_stock
+  - submit_cart
+  - cart_checkout
+  - apply_promo_code
+  - apply_gifts
+  - add_all_items
+  - update_cart
+  - order_complete
+  - order_cancelled
+  - order_accepted
+  - order_rejected
+  - resubmit_cart
+  - calculate_taxes
+  - add_item
+  - remove_item
+  - update_delivery_address
+  - add_delivery_address
+  - validate_promo_code
+
+shipping:
+  - shipping :SHIPPING
