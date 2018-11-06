@@ -2,7 +2,6 @@
 Configuration Provider
 @author dmitry
 """
-
 import yaml, os
 from meta.ioc import Importer
 from util.loader import Loader
