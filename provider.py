@@ -1,6 +1,6 @@
 """
 Configuration Provider
-@author dmitry r
+@author dmitry
 """
 import yaml, os
 from meta.ioc import Importer
