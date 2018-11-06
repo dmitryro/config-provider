@@ -1,6 +1,6 @@
 """
 Configuration Provider
-@author dmitry
+@author dmitry.r
 """
 
 import yaml, os
